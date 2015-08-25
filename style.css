@@ -20,44 +20,37 @@ body #content > a {
 	padding:0;
 }
 
-body #content > a.active {
-	opacity: 1;
-	z-index:4;
-}
-
 
 
 /*///////////*/
-
 
 
 body #content > a#col1 {
 	background: #2E72FF;
 	
 }
-body #content > a#col1.active { box-shadow: 0 0 10px #43A4FF; }
+
 
 
 body #content > a#col2 { 
 	background: #2AFA33;
 	
 }
-body #content > a#col2.active { box-shadow: 0 0 10px #2AF834; }
+
 
 body #content > a#col3 {
 	background: #FFFF11;
 	
 }
-body #content > a#col3.active { box-shadow: 0 0 10px #FFFF11; }
+
 
 body #content > a#col4 { 
 	background: #FFB21A;
 	
 }
-body #content > a#col4.active { box-shadow: 0 0 10px #FFA718; }
+
 
 body #content > a#col5 {
 	background: #FF434F;
 	
 }
-body #content > a#col5.active { box-shadow: 0 0 10px #FF3C49; }

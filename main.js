@@ -60,33 +60,37 @@
 // End game, clear score back to Home screen. 
 
 
+// document.querySelectorAll(“keys”).addEventListener(“on click”,”tap,)
+
+
+
+
 // Event Listeners 
 
-var blueSound = new audio("sounds/.mp3")
-var greenSound = new audio("sounds/.mp3")
-var yellowSound = new audio("sounds/.mp3")
-var orangeSound = new audio("sounds/.mp3")
-var redSound = new audio("sounds/.mp3")
+var blueSound = new Audio("sounds/IWU.mp3")
+// var greenSound = new audio("sounds/.mp3")
+// var yellowSound = new audio("sounds/.mp3")
+// var orangeSound = new audio("sounds/.mp3")
+// var redSound = new audio("sounds/.mp3")
 
 
-$(window).on(“on click”, function(event) {
+$(window).on("keydown", function(event) {
      console.log(event.which);
-     if(event.which === 6,7,8,9,0){
+     if(event.which === 54 ){
      //trigger mp3 audio
          console.log("Blue");
+         blueSound.pause();
+         blueSound.currentTime = 0;
          blueSound.play();
+    }
+// else if(event.which === ){
+//      //trigger mp3 audio
+//      console.log("Green");
+//      greensound.play();
 
-else if(event.which === 7){
-     //trigger mp3 audio
-     console.log("Green");
-     greensound.play();
-
-}
+// }
         
 }); 
-
-
-document.querySelectorAll(“keys”).addEventListener(“on click”,”tap,)
 
 
 
