@@ -65,10 +65,12 @@
 
 
 
+
+
 // Event Listeners 
 
 var blueSound = new Audio("sounds/IWU.mp3")
-// var greenSound = new audio("sounds/.mp3")
+var greenSound = new Audio("sounds/Leads.mp3")
 // var yellowSound = new audio("sounds/.mp3")
 // var orangeSound = new audio("sounds/.mp3")
 // var redSound = new audio("sounds/.mp3")
@@ -83,6 +85,13 @@ $(window).on("keydown", function(event) {
          blueSound.currentTime = 0;
          blueSound.play();
     }
+     else if(event.which === 55 ){
+     //trigger mp3 audio
+         console.log("Green");
+         greenSound.pause();
+         greenSound.currentTime = 0;
+         greenSound.play();
+    }
 // else if(event.which === ){
 //      //trigger mp3 audio
 //      console.log("Green");
@@ -91,6 +100,52 @@ $(window).on("keydown", function(event) {
 // }
         
 }); 
+
+
+
+// //Lights function]
+// function lights (element, times, speed, pad) {
+     
+// }
+   
+
+
+
+
+// game start:
+
+
+// random sequence. gets pushed into array. (10 DIGITS)
+   
+function gameStart () {
+        ///generate 10 random numbers
+        return Math.floor(Math.random() * 5) + 1;
+        //each time push into array
+   }   
+
+// player sequence: gets pushed into empty aray
+
+
+// checkSequence  
+
+// if (playerSequence !-- randomSequence) {
+//      gameOver 
+// } else {  
+//      update scoreBoard
+//      change turn 
+// }
+
+
+
+// display sequence
+
+
+// 66
+// scoreBoard
+
+
+
+// endGame function
 
 
 
