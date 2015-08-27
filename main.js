@@ -13,11 +13,16 @@
 
 
 var blueSound = new Audio("sounds/IWU.mp3");
-var greenSound = new Audio("sounds/Leads.mp3");
-var genSequence = [];
-var playSequence = []; 
+var greenSound = new Audio("sounds/IWU.mp3");
+var yellowSound = new Audio("sounds/IWU.mp3");
+var orangeSound = new Audio("sounds/IWU.mp3");
+var redSound = new Audio("sounds/IWU.mp3");
 
-var challengeLength = 10; 
+var genSequence = [];
+var playSequence = [];
+var playTwoSequence = []; 
+
+var challengeLength = 5; 
 // var yellowSound = new Audio("sounds/.mp3")
 // var orangeSound = new Audio("sounds/.mp3")
 // var redSound = new Audio("sounds/.mp3")
@@ -47,15 +52,31 @@ $(window).on("keydown", function(event) {
          playSequence.push(2);
          winCheck();
     } else if(event.which === 56 ) { //
+         console.log("Yellow"); 
+         yellowSound.pause();
+         yellowSound.currentTime = 0;
+         yellowSound.play();
+         playSequence.push(3);
+         winCheck(); 
 
+    } else if(event.which === 57 ) { //
+         console.log("Orange"); 
+         orangeSound.pause();
+         orangeSound.currentTime = 0;
+         orangeSound.play();
+         playSequence.push(4);
+         winCheck(); 
+
+    } else if(event.which === 48 ) { //
+         console.log("Red"); 
+         redSound.pause();
+         redSound.currentTime = 0;
+         redSound.play();
+         playSequence.push(5);
+         winCheck(); 
 
     }
-     // else if(event.which === ){
-     //      //trigger mp3 audio
-     //      console.log("Green");
-     //      greensound.play();
-
-     // }
+  
         
 }); 
 
@@ -69,9 +90,20 @@ function gameStart () {
 
 }   
 
+
+function playSequence () {
+          playSequence.push(challengeLength)
+          
+     }     
+
+     // body...
+
 function winCheck() {
-     console.log(genSequence);
-     console.log(playSequence);
+     console.log(genSequence)
+     console.log(playSequence)
+//      if (playSequence !== genSequence) {
+//           //gameOver() funciton
+//      } else if 
 }
 
 
