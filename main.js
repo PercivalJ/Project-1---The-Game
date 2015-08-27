@@ -71,9 +71,9 @@
 
 var blueSound = new Audio("sounds/IWU.mp3")
 var greenSound = new Audio("sounds/Leads.mp3")
-// var yellowSound = new audio("sounds/.mp3")
-// var orangeSound = new audio("sounds/.mp3")
-// var redSound = new audio("sounds/.mp3")
+// var yellowSound = new Audio("sounds/.mp3")
+// var orangeSound = new Audio("sounds/.mp3")
+// var redSound = new Audio("sounds/.mp3")
 
 
 $(window).on("keydown", function(event) {
@@ -81,7 +81,7 @@ $(window).on("keydown", function(event) {
      if(event.which === 54 ){
      //trigger mp3 audio
          console.log("Blue");
-         blueSound.pause();
+         blueSound.pause();         // audio stop
          blueSound.currentTime = 0;
          blueSound.play();
     }
@@ -103,13 +103,13 @@ $(window).on("keydown", function(event) {
 
 
 
-// //Lights function]
-// function lights (element, times, speed, pad) {
+
      
 // }
    
 
-
+var genSequence = [];
+console.log(genSequence);
 
 
 // game start:
@@ -118,9 +118,13 @@ $(window).on("keydown", function(event) {
 // random sequence. gets pushed into array. (10 DIGITS)
    
 function gameStart () {
+
         ///generate 10 random numbers
-        return Math.floor(Math.random() * 5) + 1;
-        //each time push into array
+        console.log( Math.floor(Math.random() * 10) + 1); 
+        //each time push into array  
+        // genSequence.push
+        
+
    }   
 
 // player sequence: gets pushed into empty aray
@@ -139,8 +143,11 @@ function gameStart () {
 
 // display sequence
 
+//function displaySequence () { 
+     // if gameStart 
+    
+     // flash lights and sound. // blueSound.Play();
 
-// 66
 // scoreBoard
 
 
