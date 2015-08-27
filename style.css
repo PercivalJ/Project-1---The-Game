@@ -22,35 +22,31 @@ body #content > a {
 
 
 
-/*///////////*/
 
-
-body #content > a#col1 {
+.col1dark {
 	background: #2E72FF;
-	
+}
+
+.col1light {
+	background: #95B7FF;
 }
 
 
 
-body #content > a#col2 { 
+#col2 { 
 	background: #2AFA33;
-	
 }
 
-
-body #content > a#col3 {
+#col3 {
 	background: #FFFF11;
-	
 }
 
-
-body #content > a#col4 { 
-	background: #FFB21A;
-	
+#col4 { 
+	background: #FFB21A;	
 }
 
-
-body #content > a#col5 {
+#col5 {
 	background: #FF434F;
 	
 }
+

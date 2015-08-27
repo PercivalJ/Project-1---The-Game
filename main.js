@@ -1,3 +1,83 @@
+
+//////////////////////////////////// VARIABLES
+
+var blueSound = new Audio("sounds/IWU.mp3");
+var greenSound = new Audio("sounds/Leads.mp3");
+var genSequence = [];
+
+var challengeLength = 10; 
+// var yellowSound = new Audio("sounds/.mp3")
+// var orangeSound = new Audio("sounds/.mp3")
+// var redSound = new Audio("sounds/.mp3")
+
+
+
+//////////////////////////////////// EVENT LISTENERS
+
+$(window).on("keydown", function(event) {
+     console.log(event.which);
+     if(event.which === 54 ){
+     //trigger mp3 audio
+         console.log("Blue");
+         blueSound.pause();         // audio stop
+         blueSound.currentTime = 0;
+         blueSound.play();
+         $('.col1dark').addClass('col1light');
+
+    } else if(event.which === 55 ){
+     //trigger mp3 audio
+         console.log("Green");
+         greenSound.pause();
+         greenSound.currentTime = 0;
+         greenSound.play();
+    } 
+     // else if(event.which === ){
+     //      //trigger mp3 audio
+     //      console.log("Green");
+     //      greensound.play();
+
+     // }
+        
+}); 
+
+   
+function gameStart () {
+     for (var i = 0 ; i < challengeLength ; i++) { //for loop to 10
+          var randNum = Math.floor(Math.random() * 5) + 1; //generates random whole integer between 1 and 5
+          genSequence.push(randNum);  //each time push into array 
+     }
+     console.log(genSequence);
+
+}   
+
+// player sequence: gets pushed into empty aray
+
+
+// checkSequence  
+
+// if (playerSequence !-- randomSequence) {
+//      gameOver 
+// } else {  
+//      update scoreBoard
+//      change turn 
+// }
+
+
+
+// display sequence
+
+//function displaySequence () { 
+     // if gameStart 
+    
+     // flash lights and sound. // blueSound.Play();
+
+// scoreBoard
+
+
+
+// endGame function
+
+
 // Menu State 
 // Game Logo
 //      Buttons
@@ -63,96 +143,6 @@
 // document.querySelectorAll(“keys”).addEventListener(“on click”,”tap,)
 
 
-
-
-
-
-// Event Listeners 
-
-var blueSound = new Audio("sounds/IWU.mp3")
-var greenSound = new Audio("sounds/Leads.mp3")
-// var yellowSound = new Audio("sounds/.mp3")
-// var orangeSound = new Audio("sounds/.mp3")
-// var redSound = new Audio("sounds/.mp3")
-
-
-$(window).on("keydown", function(event) {
-     console.log(event.which);
-     if(event.which === 54 ){
-     //trigger mp3 audio
-         console.log("Blue");
-         blueSound.pause();         // audio stop
-         blueSound.currentTime = 0;
-         blueSound.play();
-    }
-     else if(event.which === 55 ){
-     //trigger mp3 audio
-         console.log("Green");
-         greenSound.pause();
-         greenSound.currentTime = 0;
-         greenSound.play();
-    }
-// else if(event.which === ){
-//      //trigger mp3 audio
-//      console.log("Green");
-//      greensound.play();
-
-// }
-        
-}); 
-
-
-
-
-     
-// }
-   
-
-var genSequence = [];
-console.log(genSequence);
-
-
-// game start:
-
-
-// random sequence. gets pushed into array. (10 DIGITS)
-   
-function gameStart () {
-
-        ///generate 10 random numbers between 1 and 5
-        randNum =  Math.floor(Math.random() * 5) + 1; 
-        //each time push into array  
-        // genSequence.push
-        
-
-   }   
-
-// player sequence: gets pushed into empty aray
-
-
-// checkSequence  
-
-// if (playerSequence !-- randomSequence) {
-//      gameOver 
-// } else {  
-//      update scoreBoard
-//      change turn 
-// }
-
-
-
-// display sequence
-
-//function displaySequence () { 
-     // if gameStart 
-    
-     // flash lights and sound. // blueSound.Play();
-
-// scoreBoard
-
-
-
-// endGame function
 
 
 
