@@ -31,6 +31,8 @@ var challengeLength = 5;
 
 //////////////////////////////////// EVENT LISTENERS
 
+
+
 $(window).on("keydown", function(event) {
      console.log(event.which);
      if(event.which === 54 ){ //Blue
@@ -51,7 +53,7 @@ $(window).on("keydown", function(event) {
          greenSound.play();
          playSequence.push(2);
          winCheck();
-    } else if(event.which === 56 ) { //
+    } else if(event.which === 56 ) { // Yellow
          console.log("Yellow"); 
          yellowSound.pause();
          yellowSound.currentTime = 0;
@@ -59,7 +61,7 @@ $(window).on("keydown", function(event) {
          playSequence.push(3);
          winCheck(); 
 
-    } else if(event.which === 57 ) { //
+    } else if(event.which === 57 ) { // Orange
          console.log("Orange"); 
          orangeSound.pause();
          orangeSound.currentTime = 0;
@@ -67,7 +69,7 @@ $(window).on("keydown", function(event) {
          playSequence.push(4);
          winCheck(); 
 
-    } else if(event.which === 48 ) { //
+    } else if(event.which === 48 ) { // Red
          console.log("Red"); 
          redSound.pause();
          redSound.currentTime = 0;
@@ -80,7 +82,11 @@ $(window).on("keydown", function(event) {
         
 }); 
 
-   
+  
+var $title = $('h1')[0]
+
+// $title[0].mousedown(gameStart)
+
 function gameStart () {
      for (var i = 0 ; i < challengeLength ; i++) { //for loop to 10
           var randNum = Math.floor(Math.random() * 5) + 1; //generates random whole integer between 1 and 5
