@@ -9,20 +9,22 @@
 
 // TASKS: 
 // 1. Finish all event listeners (code block line 28 + )
-// 2. make sure each conditional results in push to playSequence
+// 2. make sure each conditional results in push to playerSequence
 
 
-var blueSound = new Audio("sounds/IWU.mp3");
-var greenSound = new Audio("sounds/IWU.mp3");
-var yellowSound = new Audio("sounds/IWU.mp3");
-var orangeSound = new Audio("sounds/IWU.mp3");
-var redSound = new Audio("sounds/IWU.mp3");
+var blueSound = new Audio("sounds/SynthC1.mp3");
+var greenSound = new Audio("sounds/SynthC2.mp3");
+var yellowSound = new Audio("sounds/SynthC3.mp3");
+var orangeSound = new Audio("sounds/SynthC4.mp3");
+var redSound = new Audio("sounds/SynthC5.mp3");
+var soundsArray = [blueSound, greenSound, yellowSound, orangeSound, redSound]
 
 var genSequence = [];
-var playSequence = [];
+var playerSequence = [];
 var playTwoSequence = []; 
 
-var challengeLength = 5; 
+var challengeLength = 3; 
+var compPlaySpeed = 700
 // var yellowSound = new Audio("sounds/.mp3")
 // var orangeSound = new Audio("sounds/.mp3")
 // var redSound = new Audio("sounds/.mp3")
@@ -38,79 +40,139 @@ $(window).on("keydown", function(event) {
      if(event.which === 54 ){ //Blue
      //trigger mp3 audio
          console.log("Blue");
-         blueSound.pause();         // audio stop
-         blueSound.currentTime = 0;
-         blueSound.play();
-         $('.col1dark').addClass('col1light');
-         playSequence.push(1)
+         setTimeout(playSound(blueSound),500);
+
+         $('.col1light').addClass('#col1dark');
+         playerSequence.push(1)
          winCheck();
 
     } else if(event.which === 55 ){ //Green
      //trigger mp3 audio
          console.log("Green");
-         greenSound.pause();
-         greenSound.currentTime = 0;
+         setTimeout(playSound(greenSound),500);
          greenSound.play();
-         playSequence.push(2);
+         playerSequence.push(2);
          winCheck();
+
     } else if(event.which === 56 ) { // Yellow
          console.log("Yellow"); 
-         yellowSound.pause();
-         yellowSound.currentTime = 0;
-         yellowSound.play();
-         playSequence.push(3);
+         setTimeout(playSound(yellowSound),500);
+         playerSequence.push(3);
          winCheck(); 
 
     } else if(event.which === 57 ) { // Orange
          console.log("Orange"); 
-         orangeSound.pause();
-         orangeSound.currentTime = 0;
-         orangeSound.play();
-         playSequence.push(4);
+         setTimeout(playSound(orangeSound),500);
+         playerSequence.push(4);
          winCheck(); 
 
     } else if(event.which === 48 ) { // Red
          console.log("Red"); 
-         redSound.pause();
-         redSound.currentTime = 0;
-         redSound.play();
-         playSequence.push(5);
+         setTimeout(playSound(redSound),500);
+         playerSequence.push(5);
          winCheck(); 
-
     }
-  
         
 }); 
 
   
-var $title = $('h1')[0]
+$('#content').on("mousedown", gameStart)
+
 
 // $title[0].mousedown(gameStart)
 
 function gameStart () {
+    console.log( genSequence)
+    genSequence = [];
      for (var i = 0 ; i < challengeLength ; i++) { //for loop to 10
           var randNum = Math.floor(Math.random() * 5) + 1; //generates random whole integer between 1 and 5
           genSequence.push(randNum);  //each time push into array 
      }
-     console.log(genSequence);
+
+    // var sequenceArray = gameStart();
+    var intervalI = 0
+    var myInterval = setInterval(function(){
+    if(intervalI < genSequence.length){
+        genSequencePlay( genSequence[intervalI] );
+        console.log(genSequence[intervalI]);
+    } else {
+        clearInterval(myInterval);
+    }
+
+    intervalI ++;
+    }, compPlaySpeed);
 
 }   
 
+function genSequencePlay (i) {
 
-function playSequence () {
-          playSequence.push(challengeLength)
-          
-     }     
 
-     // body...
+    if( i === 1 ){ //Blue
+     //trigger mp3 audio
+        console.log("Blue");
+        playSound(blueSound);
+        // $('#col1dark').addClass('col1light');
+        function (){ $('#col1dark').removeClass('col1light'); },3000)
 
-function winCheck() {
-     console.log(genSequence)
-     console.log(playSequence)
-//      if (playSequence !== genSequence) {
-//           //gameOver() funciton
-//      } else if 
+    } else if(i === 2 ){ //Green
+     //trigger mp3 audio
+        console.log("Green");
+        playSound(greenSound);
+
+    } else if(i === 3 ) { // Yellow
+        console.log("Yellow"); 
+        playSound(yellowSound);
+  
+    } else if(i === 4 ) { // Orange
+        console.log("Orange"); 
+        playSound(orangeSound);
+     
+    } else if(i === 5 ) { // Red
+        console.log("Red"); 
+        playSound(redSound);
+    }
 }
+
+function playSound(clip){              //plays the sound that corresponds to the pad chosen
+    clip.currentTime=0;                //resets audio position to the start of the clip
+    clip.play();                      //play the sound
+}
+
+
+
+// function test() {
+//     sequenceInterval = setInterval(function(){genSequencePlay(1)}, 500);
+// }
+
+
+// function playerSequence () {
+//     playerSequence.push(challengeLength)
+// }     
+
+
+
+// function winCheck() {
+//      // console.log(genSequence)
+//      // console.log(playerSequence)
+//      // if (playerSequence[i] !== genSequence) {
+//      //      //gameOver() funciton
+//      // } else if {
+// }
+
+
+   
+
+    //setTimeout is to allow 10seconds of time for the player to play the computers sequence
+    // setTimeout( winCheck, 10000);
+    // checkWinner();
+
+
+
+
+
+
+
+
 
 
 
@@ -130,7 +192,7 @@ function winCheck() {
 
 // display sequence
 
-//function displaySequence () { 
+//function displayerSequence () { 
      // if gameStart 
     
      // flash lights and sound. // blueSound.Play();
