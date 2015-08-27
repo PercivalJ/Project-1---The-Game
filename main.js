@@ -1,9 +1,21 @@
 
 //////////////////////////////////// VARIABLES
 
+// Blue = 1
+// Green = 2 
+// Yellow = 4 
+// Orange = 4 
+// Red = 5
+
+// TASKS: 
+// 1. Finish all event listeners (code block line 28 + )
+// 2. make sure each conditional results in push to playSequence
+
+
 var blueSound = new Audio("sounds/IWU.mp3");
 var greenSound = new Audio("sounds/Leads.mp3");
 var genSequence = [];
+var playSequence = []; 
 
 var challengeLength = 10; 
 // var yellowSound = new Audio("sounds/.mp3")
@@ -16,21 +28,28 @@ var challengeLength = 10;
 
 $(window).on("keydown", function(event) {
      console.log(event.which);
-     if(event.which === 54 ){
+     if(event.which === 54 ){ //Blue
      //trigger mp3 audio
          console.log("Blue");
          blueSound.pause();         // audio stop
          blueSound.currentTime = 0;
          blueSound.play();
          $('.col1dark').addClass('col1light');
+         playSequence.push(1)
+         winCheck();
 
-    } else if(event.which === 55 ){
+    } else if(event.which === 55 ){ //Green
      //trigger mp3 audio
          console.log("Green");
          greenSound.pause();
          greenSound.currentTime = 0;
          greenSound.play();
-    } 
+         playSequence.push(2);
+         winCheck();
+    } else if(event.which === 56 ) { //
+
+
+    }
      // else if(event.which === ){
      //      //trigger mp3 audio
      //      console.log("Green");
@@ -49,6 +68,13 @@ function gameStart () {
      console.log(genSequence);
 
 }   
+
+function winCheck() {
+     console.log(genSequence);
+     console.log(playSequence);
+}
+
+
 
 // player sequence: gets pushed into empty aray
 
