@@ -119,8 +119,8 @@ console.log(genSequence);
    
 function gameStart () {
 
-        ///generate 10 random numbers
-        console.log( Math.floor(Math.random() * 10) + 1); 
+        ///generate 10 random numbers between 1 and 5
+        randNum =  Math.floor(Math.random() * 5) + 1; 
         //each time push into array  
         // genSequence.push
         
