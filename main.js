@@ -157,11 +157,10 @@ function winCheck() {
      for (var i = 0 ; i <= challengeLength ; i++){
         if (playerSequence[i] !== genSequence[i]) {
          console.log("you lose");
-         return false
-         
+         return alert("you almost had it, try again!")
          } else {
          console.log("good job");
-         
+            
          
          }
 
