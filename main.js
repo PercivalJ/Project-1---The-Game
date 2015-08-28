@@ -1,11 +1,11 @@
 
 //////////////////////////////////// VARIABLES
 
-var blueSound = new Audio("sounds/SynthC1.mp3");
-var greenSound = new Audio("sounds/SynthC2.mp3");
-var yellowSound = new Audio("sounds/SynthC3.mp3");
-var orangeSound = new Audio("sounds/SynthC4.mp3");
-var redSound = new Audio("sounds/SynthC5.mp3");
+var blueSound = new Audio("sounds/wiHarder1.mp3");
+var greenSound = new Audio("sounds/miBetter2.mp3");
+var yellowSound = new Audio("sounds/diFasterMuStrong3.mp3");
+var orangeSound = new Audio("sounds/mtEverhourAfter4.mp3");
+var redSound = new Audio("sounds/oWorkiNO5.mp3");
 var soundsArray = [blueSound, greenSound, yellowSound, orangeSound, redSound]
 
 var genSequence = [];
@@ -14,7 +14,7 @@ var playTwoSequence = [];
 var turn = 0; 
 
 var challengeLength = 5; 
-var compPlaySpeed = 700
+var compPlaySpeed = 1666
 
 var $col1 = $('#col1')     //variables for changing opacity  
 var $col2 = $('#col2') 
@@ -23,9 +23,8 @@ var $col4 = $('#col4')
 var $col5 = $('#col5')
 
 
-
+$( window ).load( gameStart );
 //////////////////////////////////// EVENT LISTENERS
-
 
 
 $(window).on("keydown", function(event) {
@@ -35,7 +34,7 @@ $(window).on("keydown", function(event) {
          //trigger mp3 audio
              console.log("Blue");
              changeColors($col1) 
-             setTimeout(playSound(blueSound),500);
+             setTimeout(playSound(blueSound),1175);
               
              playerSequence.push(1)
              winCheck();
@@ -44,7 +43,7 @@ $(window).on("keydown", function(event) {
          //trigger mp3 audio
              console.log("Green");
              changeColors($col2)
-             setTimeout(playSound(greenSound),500);
+             setTimeout(playSound(greenSound),1097);
              greenSound.play();
              playerSequence.push(2);
              winCheck();
@@ -52,21 +51,21 @@ $(window).on("keydown", function(event) {
         } else if(event.which === 56 ) { // Yellow
              console.log("Yellow");
              changeColors($col3) 
-             setTimeout(playSound(yellowSound),500);
+             setTimeout(playSound(yellowSound),2011);
              playerSequence.push(3);
              winCheck(); 
 
         } else if(event.which === 57 ) { // Orange
              console.log("Orange"); 
              changeColors($col4)
-             setTimeout(playSound(orangeSound),500);
+             setTimeout(playSound(orangeSound),2063);
              playerSequence.push(4);
              winCheck(); 
 
         } else if(event.which === 48 ) { // Red
              console.log("Red");
              changeColors($col5) 
-             setTimeout(playSound(redSound),500);
+             setTimeout(playSound(redSound),1985);
              playerSequence.push(5);
              winCheck(); 
         }
@@ -75,6 +74,7 @@ $(window).on("keydown", function(event) {
 
   
 $('#content').on("mousedown", gameStart)
+
 
 
 function gameStart () {
@@ -146,7 +146,7 @@ function changeColors ( columns ) {          //changes opacity and reverts to or
     setTimeout(
         function () {
             columns.css('opacity','0.5')
-    }, 500 );
+    }, 1400 );
 }
 
 
@@ -163,11 +163,17 @@ function winCheck() {
          console.log("good job");
 
 
+
          }
 
     }
 }
 
+$(document).ready(function(){
+    $('#reset').click(function(){
+        location.reload();
+    });
+});
 
 
 // function test() {
