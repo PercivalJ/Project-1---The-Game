@@ -169,7 +169,7 @@ function winCheck() {
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function(){           //reset function. reloads page
     $('#reset').click(function(){
         location.reload();
     });

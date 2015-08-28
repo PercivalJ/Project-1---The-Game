@@ -1,5 +1,4 @@
 
-
 #content {
 	position: fixed;
 	/*z-index: 1;*/
@@ -25,6 +24,13 @@
 }
 
 
+h1 {
+	font-family: Ubuntu;
+	font-size: 36px;
+	color: #000000;
+	text-align: center;
+
+}
 
 #col1 {
 	background: #0053FF;
@@ -50,4 +56,10 @@
 
 #reset {	
 	position:relative;
+	font-family: Ubuntu;
+	font-size: 18px
+	background: #C0C0C0;
+	border-radius: 20px;
+	color: #ffffff;
+	padding: 10px 20px 10px 20px;
 }
