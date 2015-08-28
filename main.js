@@ -16,7 +16,7 @@ var turn = 0;
 var challengeLength = 5; 
 var compPlaySpeed = 1666
 
-var $col1 = $('#col1')     //variables for changing opacity  
+var $col1 = $('#col1')     //for changing opacity  
 var $col2 = $('#col2') 
 var $col3 = $('#col3') 
 var $col4 = $('#col4')  
@@ -96,7 +96,7 @@ function gameStart () {
     }
 
     intervalI ++;
-    }, compPlaySpeed);
+    }, compPlaySpeed);    //controls playback speed of events
 
 } 
 
@@ -152,18 +152,17 @@ function changeColors ( columns ) {          //changes opacity and reverts to or
 
 
 function winCheck() {    
-     console.log(genSequence)
-     console.log(playerSequence)
+    console.log(genSequence)
+    console.log(playerSequence)
      for (var i = 0 ; i <= challengeLength ; i++){
         if (playerSequence[i] !== genSequence[i]) {
          console.log("you lose");
-         return false;
+         return false
          
          } else {
          console.log("good job");
-
-
-
+         
+         
          }
 
     }
@@ -176,7 +175,23 @@ $(document).ready(function(){           //reset function. reloads page
 });
 
 
-// function test() {
+//////////////////////////////////////////// PSEUDO CODE
+
+// function takeTurn(){
+   
+//         if(turn % 2 === 0){
+//             gameStart();
+//         } else {
+//             location.reload();
+//         }
+//         turn++
+//     }   
+
+
+
+
+
+
 //     sequenceInterval = setInterval(function(){genSequencePlay(1)}, 500);
 // }
 
