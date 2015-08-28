@@ -1,17 +1,6 @@
 
 //////////////////////////////////// VARIABLES
 
-// Blue = 1
-// Green = 2 
-// Yellow = 4 
-// Orange = 4 
-// Red = 5
-
-// TASKS: 
-// 1. Finish all event listeners (code block line 28 + )
-// 2. make sure each conditional results in push to playerSequence
-
-
 var blueSound = new Audio("sounds/SynthC1.mp3");
 var greenSound = new Audio("sounds/SynthC2.mp3");
 var yellowSound = new Audio("sounds/SynthC3.mp3");
@@ -21,12 +10,13 @@ var soundsArray = [blueSound, greenSound, yellowSound, orangeSound, redSound]
 
 var genSequence = [];
 var playerSequence = [];
-var playTwoSequence = []; 
+var playTwoSequence = [];
+var turn = 0; 
 
 var challengeLength = 5; 
 var compPlaySpeed = 700
 
-var $col1 = $('#col1')
+var $col1 = $('#col1')     //variables for changing opacity  
 var $col2 = $('#col2') 
 var $col3 = $('#col3') 
 var $col4 = $('#col4')  
@@ -40,53 +30,52 @@ var $col5 = $('#col5')
 
 $(window).on("keydown", function(event) {
      console.log(event.which);
-     if(event.which === 54 ){ //Blue
-     //trigger mp3 audio
-         console.log("Blue");
-         changeColors($col1) 
-         setTimeout(playSound(blueSound),500);
-          
-         playerSequence.push(1)
-         winCheck();
+    if ( playerSequence.length < genSequence.length ) {
+         if(event.which === 54 ){ //Blue
+         //trigger mp3 audio
+             console.log("Blue");
+             changeColors($col1) 
+             setTimeout(playSound(blueSound),500);
+              
+             playerSequence.push(1)
+             winCheck();
 
-    } else if(event.which === 55 ){ //Green
-     //trigger mp3 audio
-         console.log("Green");
-         changeColors($col2)
-         setTimeout(playSound(greenSound),500);
-         greenSound.play();
-         playerSequence.push(2);
-         winCheck();
+        } else if(event.which === 55 ){ //Green
+         //trigger mp3 audio
+             console.log("Green");
+             changeColors($col2)
+             setTimeout(playSound(greenSound),500);
+             greenSound.play();
+             playerSequence.push(2);
+             winCheck();
 
-    } else if(event.which === 56 ) { // Yellow
-         console.log("Yellow");
-         changeColors($col3) 
-         setTimeout(playSound(yellowSound),500);
-         playerSequence.push(3);
-         winCheck(); 
+        } else if(event.which === 56 ) { // Yellow
+             console.log("Yellow");
+             changeColors($col3) 
+             setTimeout(playSound(yellowSound),500);
+             playerSequence.push(3);
+             winCheck(); 
 
-    } else if(event.which === 57 ) { // Orange
-         console.log("Orange"); 
-         changeColors($col4)
-         setTimeout(playSound(orangeSound),500);
-         playerSequence.push(4);
-         winCheck(); 
+        } else if(event.which === 57 ) { // Orange
+             console.log("Orange"); 
+             changeColors($col4)
+             setTimeout(playSound(orangeSound),500);
+             playerSequence.push(4);
+             winCheck(); 
 
-    } else if(event.which === 48 ) { // Red
-         console.log("Red");
-         changeColors($col5) 
-         setTimeout(playSound(redSound),500);
-         playerSequence.push(5);
-         winCheck(); 
+        } else if(event.which === 48 ) { // Red
+             console.log("Red");
+             changeColors($col5) 
+             setTimeout(playSound(redSound),500);
+             playerSequence.push(5);
+             winCheck(); 
+        }
     }
-        
 }); 
 
   
 $('#content').on("mousedown", gameStart)
 
-
-// $title[0].mousedown(gameStart)
 
 function gameStart () {
     console.log( genSequence)
@@ -110,8 +99,6 @@ function gameStart () {
     }, compPlaySpeed);
 
 } 
-
-
 
 
 function genSequencePlay (i) {
@@ -154,13 +141,34 @@ function playSound(clip){              //plays the sound that corresponds to the
 }
 
 
-function changeColors ( columns ) {
+function changeColors ( columns ) {          //changes opacity and reverts to original opacity after .5 second
     columns.css('opacity','1');   
     setTimeout(
         function () {
             columns.css('opacity','0.5')
     }, 500 );
 }
+
+
+
+function winCheck() {    
+     console.log(genSequence)
+     console.log(playerSequence)
+     for (var i = 0 ; i <= challengeLength ; i++){
+        if (playerSequence[i] !== genSequence[i]) {
+         console.log("you lose");
+         return false;
+         
+         } else {
+         console.log("good job");
+
+
+         }
+
+    }
+}
+
+
 
 // function test() {
 //     sequenceInterval = setInterval(function(){genSequencePlay(1)}, 500);
@@ -170,17 +178,6 @@ function changeColors ( columns ) {
 // function playerSequence () {
 //     playerSequence.push(challengeLength)
 // }     
-
-
-
-function winCheck() {
-     // console.log(genSequence)
-     // console.log(playerSequence)
-     // if (playerSequence[i] !== genSequence) {
-     //      //gameOver() funciton
-     // } else if {
-}
-
 
    
 
@@ -194,7 +191,15 @@ function winCheck() {
 
 
 
+// Blue = 1
+// Green = 2 
+// Yellow = 4 
+// Orange = 4 
+// Red = 5
 
+// TASKS: 
+// 1. Finish all event listeners (code block line 28 + )
+// 2. make sure each conditional results in push to playerSequence
 
 
 
