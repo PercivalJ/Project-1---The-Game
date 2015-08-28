@@ -23,11 +23,14 @@ var genSequence = [];
 var playerSequence = [];
 var playTwoSequence = []; 
 
-var challengeLength = 3; 
+var challengeLength = 5; 
 var compPlaySpeed = 700
-// var yellowSound = new Audio("sounds/.mp3")
-// var orangeSound = new Audio("sounds/.mp3")
-// var redSound = new Audio("sounds/.mp3")
+
+var $col1 = $('#col1')
+var $col2 = $('#col2') 
+var $col3 = $('#col3') 
+var $col4 = $('#col4')  
+var $col5 = $('#col5')
 
 
 
@@ -40,34 +43,38 @@ $(window).on("keydown", function(event) {
      if(event.which === 54 ){ //Blue
      //trigger mp3 audio
          console.log("Blue");
+         changeColors($col1) 
          setTimeout(playSound(blueSound),500);
-
-         $('.col1light').addClass('#col1dark');
+          
          playerSequence.push(1)
          winCheck();
 
     } else if(event.which === 55 ){ //Green
      //trigger mp3 audio
          console.log("Green");
+         changeColors($col2)
          setTimeout(playSound(greenSound),500);
          greenSound.play();
          playerSequence.push(2);
          winCheck();
 
     } else if(event.which === 56 ) { // Yellow
-         console.log("Yellow"); 
+         console.log("Yellow");
+         changeColors($col3) 
          setTimeout(playSound(yellowSound),500);
          playerSequence.push(3);
          winCheck(); 
 
     } else if(event.which === 57 ) { // Orange
          console.log("Orange"); 
+         changeColors($col4)
          setTimeout(playSound(orangeSound),500);
          playerSequence.push(4);
          winCheck(); 
 
     } else if(event.which === 48 ) { // Red
-         console.log("Red"); 
+         console.log("Red");
+         changeColors($col5) 
          setTimeout(playSound(redSound),500);
          playerSequence.push(5);
          winCheck(); 
@@ -102,7 +109,10 @@ function gameStart () {
     intervalI ++;
     }, compPlaySpeed);
 
-}   
+} 
+
+
+
 
 function genSequencePlay (i) {
 
@@ -110,35 +120,47 @@ function genSequencePlay (i) {
     if( i === 1 ){ //Blue
      //trigger mp3 audio
         console.log("Blue");
+        changeColors($col1)
         playSound(blueSound);
         // $('#col1dark').addClass('col1light');
-        function (){ $('#col1dark').removeClass('col1light'); },3000)
+        // function (){ $('#col1dark').removeClass('col1light'); },3000)
 
     } else if(i === 2 ){ //Green
      //trigger mp3 audio
         console.log("Green");
+        changeColors($col2)
         playSound(greenSound);
 
     } else if(i === 3 ) { // Yellow
         console.log("Yellow"); 
+        changeColors($col3)
         playSound(yellowSound);
   
     } else if(i === 4 ) { // Orange
-        console.log("Orange"); 
+        console.log("Orange");
+        changeColors($col4) 
         playSound(orangeSound);
      
     } else if(i === 5 ) { // Red
-        console.log("Red"); 
+        console.log("Red");
+        changeColors($col5) 
         playSound(redSound);
     }
 }
 
-function playSound(clip){              //plays the sound that corresponds to the pad chosen
+function playSound(clip){              //plays the sound that corresponds to the pad chosen 
     clip.currentTime=0;                //resets audio position to the start of the clip
     clip.play();                      //play the sound
 }
 
 
+function changeColors ( columns ) {
+    columns.css('opacity','1');   
+    setTimeout(
+        function () {
+            columns.css('opacity','0.5')
+    }, 500 );
+}
 
 // function test() {
 //     sequenceInterval = setInterval(function(){genSequencePlay(1)}, 500);
@@ -151,13 +173,13 @@ function playSound(clip){              //plays the sound that corresponds to the
 
 
 
-// function winCheck() {
-//      // console.log(genSequence)
-//      // console.log(playerSequence)
-//      // if (playerSequence[i] !== genSequence) {
-//      //      //gameOver() funciton
-//      // } else if {
-// }
+function winCheck() {
+     // console.log(genSequence)
+     // console.log(playerSequence)
+     // if (playerSequence[i] !== genSequence) {
+     //      //gameOver() funciton
+     // } else if {
+}
 
 
    
